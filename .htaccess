@@ -1,0 +1,36 @@
+### SILVERSTRIPE START ###
+<Files *.ss>
+	Order deny,allow
+	Deny from all
+	Allow from 127.0.0.1
+</Files>
+
+<Files web.config>
+	Order deny,allow
+	Deny from all
+</Files>
+
+ErrorDocument 404 /assets/error-404.html
+ErrorDocument 500 /assets/error-500.html
+
+<IfModule mod_alias.c>
+	RedirectMatch 403 /silverstripe-cache(/|$)
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	SetEnv HTTP_MOD_REWRITE On
+	RewriteEngine On
+	RewriteBase '/'
+
+	# Generic www redirects
+	RewriteCond %{HTTP_HOST} !^www [NC]
+	RewriteCond %{HTTP_HOST} !local [NC]
+	RewriteCond %{HTTP_HOST} !test [NC]
+	RewriteRule .* http://www.%{HTTP_HOST} [R=301,L]
+
+	# Silverstripe framework
+	RewriteCond %{REQUEST_URI} ^(.*)$
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule .* framework/main.php?url=%1&%{QUERY_STRING} [L]
+</IfModule>
+### SILVERSTRIPE END ###

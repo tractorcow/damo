@@ -1,0 +1,31 @@
+{
+    "name": "tractorcow/damo",
+    "description": "Personal site",
+    "authors": [
+        {
+            "name": "Damian Mooyman",
+            "email": "damian.mooyman@gmail.com"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "3.1.*-dev",
+		"silverstripe/cms": "3.1.*-dev",
+		"silverstripe/googlesitemaps": "dev-master",
+		"silverstripe/comments": "dev-master",
+        "silverstripe/blog": "dev-master",
+		"silverstripe-labs/googleanalytics": "dev-master",
+        "silverstripe/widgets": "dev-master",
+		"tractorcow/silverstripe-robots": "3.0.*-dev",
+		"tractorcow/silverstripe-twitter": "3.1.*-dev",
+		"tractorcow/silverstripe-datelink": "3.1.*-dev",
+		"tractorcow/silverstripe-opengraph": "3.1.*-dev",
+        "tractorcow/silverstripe-comments-notifications": "3.1.*-dev",
+        "colymba/gridfield-bulk-editing-tools": "dev-master",
+		"simonwelsh/gridfieldrelationhandler": "dev-master",
+		"undefinedoffset/sortablegridfield": "dev-master",
+        "silverstripe/spamprotection": "dev-master",
+		"silverstripe/recaptcha": "dev-master",
+        "ezyang/htmlpurifier": "4.*",
+        "simplepie/simplepie": "dev-master"
+    }
+}

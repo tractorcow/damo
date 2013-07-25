@@ -1,0 +1,13 @@
+---
+Name: mysite
+---
+SSViewer:
+  theme: 'damo'
+MySQLDatabase:
+  connection_charset: 'utf8'
+BlogTree:
+  extensions:
+    - WidgetPageExtension
+BlogEntry:
+  extensions:
+    - WidgetPageExtension
