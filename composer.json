@@ -26,6 +26,8 @@
         "silverstripe/spamprotection": "dev-master",
 		"silverstripe/recaptcha": "dev-master",
         "ezyang/htmlpurifier": "4.*",
-        "simplepie/simplepie": "dev-master"
+        "simplepie/simplepie": "dev-master",
+		"tractorcow/silverstripe-metro": "3.0.*-dev",
+		"tractorcow/silverstripe-metro-blog": "3.0.*-dev"
     }
 }
