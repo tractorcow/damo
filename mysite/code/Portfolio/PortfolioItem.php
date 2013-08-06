@@ -12,7 +12,8 @@ class PortfolioItem extends DataObject {
 		'Title' => 'Varchar(255)',
 		'Link' => 'Varchar(255)',
 		'SortOrder' => 'Int',
-		'Description' => 'Text'
+		'Description' => 'Text',
+		'Client' => 'Varchar(255)'
 	);
 	
 	private static $has_one = array(
@@ -46,14 +47,37 @@ class PortfolioItem extends DataObject {
 			$tagsSelector,
 			$tagsCreator
 		);
-		$tagGroup->setTitle('Article Tags');
+		$tagGroup->setTitle('Portfolio Tags');
 		
 		return new FieldList(
 			new TextField('Title', 'Title', null, 255),
+			new TextField('Client',	'Client', null, 255),
 			new TextField('Link', 'Link', null, 255),
 			$imageField,
 			$tagGroup,
 			new TextareaField('Description')
 		);
+	}
+	
+	
+	protected function propegateTags() {
+		// add all new tags to the tag list
+		if(empty($this->NewTags)) return;
+		
+		// Ask knowledge tag to generate all tags
+		$tagIDs = PortfolioTag::create_from_taglist($this->NewTags);
+		
+		// Add these to existing tags
+		if(!empty($tagIDs)) {
+			$this->Tags()->addMany($tagIDs);
+		}
+	}
+	
+	function onBeforeWrite() {
+		
+		// Fix tags
+		$this->propegateTags();
+		
+		parent::onBeforeWrite();
 	}
 }

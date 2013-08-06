@@ -20,3 +20,5 @@ if (!Director::isDev()) {
     SS_Log::add_writer(new SS_LogEmailWriter('damian.mooyman@gmail.com'), SS_Log::ERR);
 }
 
+
+Commenting::set_config_value('SiteTree', 'use_gravatar', true);

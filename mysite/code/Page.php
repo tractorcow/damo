@@ -28,5 +28,8 @@ class Page_Controller extends ContentController {
 	
 	public function init() {
 		parent::init();
+		
+		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.min.js');
+		Requirements::javascript(THIRDPARTY_DIR . '/jquery-entwine/dist/jquery.entwine-dist.js');
 	}
 }

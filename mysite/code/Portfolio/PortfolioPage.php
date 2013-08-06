@@ -25,9 +25,18 @@ class PortfolioPage extends Page {
 		return $fields;
 	}
     
+	public function Tags() {
+		return PortfolioTag::get();
+	}
+    
 }
 
 class PortfolioPage_Controller extends Page_Controller {
-    
+	
+	public function init() {
+		parent::init();
+		
+		Requirements::javascript('mysite/javascript/portfolio.js');
+	}
     
 }
