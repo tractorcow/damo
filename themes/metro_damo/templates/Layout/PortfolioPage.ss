@@ -1,6 +1,11 @@
 <article class="page secondary with-sidebar" id="page-index">
-	<% include PageHeader %>
-	
+	<header class="page-header">
+		<div class="page-header-content">
+			<h1>$Title.XML<small><% if CurrentTag %>Viewing items tagged with '$CurrentTag.Title'<% end_if %></small></h1>
+			<a href="<% if CurrentTag %>$Link<% else_if Parent %>$Parent.Link<% else %>$BaseURL<% end_if %>" class="back-button big page-back"></a>
+		</div>
+	</header>
+
 	<div class="page-sidebar">
 		<% if Tags %>
 			<ul id="Sidebar">
@@ -10,7 +15,6 @@
 			</ul>
 		<% end_if %>
 	</div>
-
 	
 	<div class="page-region">
 		<div class="page-region-content">

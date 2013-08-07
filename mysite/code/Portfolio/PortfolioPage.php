@@ -33,10 +33,43 @@ class PortfolioPage extends Page {
 
 class PortfolioPage_Controller extends Page_Controller {
 	
+	private static $allowed_actions = array('tag');
+	
 	public function init() {
 		parent::init();
 		
 		Requirements::javascript('mysite/javascript/portfolio.js');
+	}
+	
+	public function tag() { return $this; }
+	
+	/**
+	 * Cached selected tag
+	 *
+	 * @var PortfolioTag
+	 */
+	protected $currentTag = null;
+	
+	/**
+	 * Selected tag
+	 * 
+	 * @return PortfolioTag
+	 */
+	public function CurrentTag() {
+		if($this->currentTag) return $this->currentTag;
+		if($this->request->param('Action') === 'tag') {
+			$urlSegment = $this->request->param('ID');
+			$this->currentTag = PortfolioTag::get()->filter('URLSegment', $urlSegment)->first();
+		}
+		return $this->currentTag;
+	}
+	
+	public function Items() {
+		if($tag = $this->CurrentTag()) {
+			return $tag->Items();
+		} else {
+			return $this->data()->Items();
+		}
 	}
     
 }
