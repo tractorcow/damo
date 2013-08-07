@@ -1,0 +1,16 @@
+.metrouicss .page-sidebar li ul.Tweets li.Tweet {
+	padding: 5px 20px 5px 25px;
+}
+.metrouicss .page-sidebar li ul.Tweets li.Tweet:hover {
+	background: #2d89ef;
+	color: white;
+}
+.metrouicss .page-sidebar li ul.Tweets li.Tweet a {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+.metrouicss .page-sidebar li ul.Tweets li.Tweet a:hover {
+	background: none;
+	color: inherit;
+}

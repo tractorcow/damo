@@ -11,3 +11,12 @@ BlogTree:
 BlogEntry:
   extensions:
     - WidgetPageExtension
+DateLink:
+  holder_classes:
+    - BlogHolder
+  child_classes:
+    - BlogEntry
+  url_pattern: '$ParentLink!/$Year!/$MonthName!/$URLSegment!//$Action/$ID/$OtherID'
+  default_date_field: 'Date'
+RootURLController:
+  default_homepage_link: 'blog'

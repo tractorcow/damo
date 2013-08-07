@@ -23,10 +23,8 @@ ErrorDocument 500 /assets/error-500.html
 	RewriteBase '/'
 
 	# Generic www redirects
-	RewriteCond %{HTTP_HOST} !^www [NC]
-	RewriteCond %{HTTP_HOST} !local [NC]
-	RewriteCond %{HTTP_HOST} !test [NC]
-	RewriteRule .* http://www.%{HTTP_HOST} [R=301,L]
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 	# Silverstripe framework
 	RewriteCond %{REQUEST_URI} ^(.*)$
