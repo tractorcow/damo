@@ -20,3 +20,6 @@ DateLink:
   default_date_field: 'Date'
 RootURLController:
   default_homepage_link: 'blog'
+CommentingController:
+  extensions:
+    - CommentSpamProtection
